@@ -1,5 +1,29 @@
 import random
 
+def main():
+
+    quantity=float(input("Insert quantity "))
+    tense=(input("Insert tense "))
+
+    sentence = make_sentence(quantity, tense)
+
+    print(sentence)
+
+def make_sentence(quantity,tense):
+    """Build and return a sentence with three words:
+    a determiner, a noun, and a verb. The grammatical
+    quantity of the determiner and noun will match the
+    number in the quantity parameter. The grammatical
+    quantity and tense of the verb will match the number
+    and tense in the quantity and tense parameters.
+    """
+    
+    determiner = get_determiner (quantity)
+    noun = get_noun (quantity)
+    verb = get_verb (quantity,tense)
+    
+    return determiner, noun, verb
+
 def get_determiner(quantity):
     """Return a randomly chosen determiner. A determiner is
     a word like "the", "a", "one", "some", "many".
@@ -26,12 +50,10 @@ def get_determiner(quantity):
 
 def get_noun(quantity):
     """Return a randomly chosen noun.
-    If quantity is 1, this function will
-    return one of these ten single nouns:
+    If quantity is 1, this function will return one of these ten single nouns:
         "bird", "boy", "car", "cat", "child",
         "dog", "girl", "man", "rabbit", "woman"
-    Otherwise, this function will return one of
-    these ten plural nouns:
+    Otherwise, this function will return one of these ten plural nouns:
         "birds", "boys", "cars", "cats", "children",
         "dogs", "girls", "men", "rabbits", "women"
 
@@ -41,7 +63,7 @@ def get_noun(quantity):
     Return: a randomly chosen noun.
     """
     if quantity == 1:
-        words = ["bird", "boy", "car", "cat", "child","dog", "girl", "man", "rabbit", "woman"]
+        words = ["bird", "boy", "car", "cat", "child","dog","girl","man", "rabbit", "woman"]
     else:
         words = ["birds", "boys", "cars", "cats", "children",
         "dogs", "girls", "men", "rabbits", "women"]
@@ -79,29 +101,26 @@ def get_verb(quantity, tense):
     if tense == "past":
         words = ["drank", "ate", "grew", "laughed", "thought",
         "ran", "slept", "talked", "walked", "wrote"]
-    elif tense == "present" & quantity == 1:
+    elif tense == "present" and quantity == 1:
         words = ["drinks", "eats", "grows", "laughs", "thinks",
         "runs", "sleeps", "talks", "walks", "writes"]
-    elif tense == "present" & quantity != 1:
-         words = ["drink", "eat", "grow", "laugh", "think",
+    elif tense == "present" and quantity != 1:
+        words = ["drink", "eat", "grow", "laugh", "think",
         "run", "sleep", "talk", "walk", "write"]
     elif tense == "future":
-         words = ["will drink", "will eat", "will grow", "will laugh",
+        words = ["will drink", "will eat", "will grow", "will laugh",
         "will think", "will run", "will sleep", "will talk",
         "will walk", "will write"]
     else:
         words = ["Not an opcion, try again"]
-       
+    
         # Randomly choose and return a determiner.
         word = random.choice(words)
         return word
-    
-    def make_sentence(quantity, tense):
-        """Build and return a sentence with three words:
-        a determiner, a noun, and a verb. The grammatical
-        quantity of the determiner and noun will match the
-        number in the quantity parameter. The grammatical
-        quantity and tense of the verb will match the number
-        and tense in the quantity and tense parameters.
-        """
         
+    
+
+      
+   
+
+main()
