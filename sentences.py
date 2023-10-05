@@ -21,8 +21,14 @@ def make_sentence(quantity,tense):
     determiner = get_determiner (quantity)
     noun = get_noun (quantity)
     verb = get_verb (quantity,tense)
+
+    cap_determiner = determiner.capitalize()
+    cap_noun = noun.capitalize()
+    cap_verb = verb.capitalize()
+
+    join = cap_determiner + " " + cap_noun + " " + cap_verb
     
-    return determiner, noun, verb
+    return join
 
 def get_determiner(quantity):
     """Return a randomly chosen determiner. A determiner is
@@ -115,12 +121,8 @@ def get_verb(quantity, tense):
         words = ["Not an opcion, try again"]
     
         # Randomly choose and return a determiner.
-        word = random.choice(words)
-        return word
+    word = random.choice(words)
+    return word
         
-    
-
-      
-   
 
 main()
